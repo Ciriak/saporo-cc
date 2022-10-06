@@ -20,6 +20,14 @@ export default function useSaporoHistory() {
   }
 
   /**
+   * Go back from one step into the current history
+   */
+  function back() {
+    const updatedHistory = [...history].slice(0, history.length - 1);
+    setHistory(updatedHistory);
+  }
+
+  /**
    * Reset the history to the specified index
    * @param index
    */
@@ -28,5 +36,5 @@ export default function useSaporoHistory() {
     setHistory(updatedHistory);
   }
 
-  return { history, addEntry, resetHistoryToIndex };
+  return { history, addEntry, resetHistoryToIndex, back };
 }
